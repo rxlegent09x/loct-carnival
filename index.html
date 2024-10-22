@@ -22,8 +22,7 @@ const main=()=>{
 if(navigator.geolocation){
 
 navigator.geolocation.getCurrentPosition((pos)=>{
-    lng.innerText = pos.coords.latitude;
-    lat.innerText = pos.coords.longitude;
+   
 
 
 fetch(url,{
